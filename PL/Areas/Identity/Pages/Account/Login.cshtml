@@ -114,7 +114,7 @@
                 <div class="median"></div>
             </div>
         </div>
-    </div>
+    </div> 
     <div class="hands">
         <div class="hand hand--left">
             <div class="finger">
@@ -169,7 +169,7 @@
                     @Html.DisplayNameFor(m => m.Input.RememberMe)
                 </label>
             </div>
-
+           
             <div class="buttonl">
                 <button class="BotonL_R" id="login-submit">Log in</button>
             </div>
@@ -178,30 +178,32 @@
                 <div class="social">
 
                     <i class="RiBaiduLine">
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </i>
+                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        </i>
                 </div>
                 <div class="social">
-
-                    <i>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </i>
-
+              
+                        <i>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        </i>
+                   
                 </div>
                 <div class="social">
-
-                    <i>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </i>
-
+                   
+                        <i>
+                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                        </i>
+                  
                 </div>
             </div>
             @*<div class="footer">Random text</div>*@
 
         </form>
 
-    </div>
 
+        
+    </div>
+    
 </div>
 
 

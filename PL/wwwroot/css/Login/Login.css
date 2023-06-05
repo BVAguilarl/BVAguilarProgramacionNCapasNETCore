@@ -27,7 +27,7 @@ body {
         width: 60px;
     }
 
-/*cuerpo de perrito*/
+    /*cuerpo de perrito*/
 .center {
     position: relative;
     top: 50%;
@@ -155,7 +155,7 @@ body {
     height: 20px;
     background-color: #ffd7dd;
     transform-origin: top;
-    transform: rotateX(60deg);
+    transform: rotateX(60deg); 
 }
 
     .center .tongue.breath {
@@ -316,8 +316,8 @@ body {
         box-shadow: none;
         outline: none;
         box-shadow: rgb(204,219,232) 3px 3px 6px 0px inset, rgba(255,255,255,0.5) -3px -3px 6px 1px inset;
-    }
-
+    } 
+    
 
         .center .login input::-moz-placeholder {
             color: #ccc;
@@ -393,10 +393,10 @@ body {
     }
 
     .center .login .buttonl .BotonL_R:active {
-        box-shadow: 0px 0px 0px 0px;
-        top: 5px;
-        left: 5px;
-    }
+            box-shadow: 0px 0px 0px 0px;
+            top: 5px;
+            left: 5px;
+        }
 
 .center .social-buttons {
     display: flex;
