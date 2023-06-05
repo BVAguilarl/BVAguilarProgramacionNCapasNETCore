@@ -1,0 +1,184 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "";
+    Layout = null;
+}
+
+<link href="~/css/Login/Login.css" rel="stylesheet">
+
+<h1>@ViewData["Title"]</h1>
+
+@*<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <h2>Use a local account to log in.</h2>
+                <hr />
+                
+            </form>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h3>Use another service to log in.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                            about setting up this ASP.NET application to support logging in via external services</a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>
+*@
+
+@* ---- PERRITO ---- *@
+<div class="center">
+    <div class="ear ear--left"></div>
+    <div class="ear ear--right"></div>
+    <div class="face">
+        <div class="eyes">
+            <div class="eye eye--left">
+                <div class="glow"></div>
+            </div>
+            <div class="eye eye--right">
+                <div class="glow"></div>
+            </div>
+        </div>
+        <div class="nose">
+            <svg width="38.161" height="22.03">
+                <path d="M2.017 10.987Q-.563 7.513.157 4.754C.877 1.994 2.976.135 6.164.093 16.4-.04 22.293-.022 32.048.093c3.501.042 5.48 2.081 6.02 4.661q.54 2.579-2.051 6.233-8.612 10.979-16.664 11.043-8.053.063-17.336-11.043z" fill="#243946"></path>
+            </svg>
+            <div class="glow"></div>
+        </div>
+        <div class="mouth">
+            <svg class="smile" viewBox="-2 -2 84 23" width="84" height="23">
+                <path d="M0 0c3.76 9.279 9.69 18.98 26.712 19.238 17.022.258 10.72.258 28 0S75.959 9.182 79.987.161" fill="none" stroke-width="3" stroke-linecap="square" stroke-miterlimit="3"></path>
+            </svg>
+            <div class="mouth-hole"></div>
+            <div class="tongue breath">
+                <div class="tongue-top"></div>
+                <div class="line"></div>
+                <div class="median"></div>
+            </div>
+        </div>
+    </div> 
+    <div class="hands">
+        <div class="hand hand--left">
+            <div class="finger">
+                <div class="bone"></div>
+                <div class="nail"></div>
+            </div>
+            <div class="finger">
+                <div class="bone"></div>
+                <div class="nail"></div>
+            </div>
+            <div class="finger">
+                <div class="bone"></div>
+                <div class="nail"></div>
+            </div>
+        </div>
+        <div class="hand hand--right">
+            <div class="finger">
+                <div class="bone"></div>
+                <div class="nail"></div>
+            </div>
+            <div class="finger">
+                <div class="bone"></div>
+                <div class="nail"></div>
+            </div>
+            <div class="finger">
+                <div class="bone"></div>
+                <div class="nail"></div>
+            </div>
+        </div>
+    </div>
+
+    @*-------------------------------------------- login --------------------------------------------*@
+    <div class="login">
+        <form id="account" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+
+            <input asp-for="Input.Email" class="username" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+            <label>
+                <label asp-for="Input.Email" class="form-label">Email</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </label>
+
+            <input asp-for="Input.Password" class="password" autocomplete="current-password" aria-required="true" placeholder="password" />
+            <label>
+                <label asp-for="Input.Password" class="form-label">Password</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </label>
+            <div>
+                <label asp-for="Input.RememberMe" class="form-label">
+                    <input class="form-check-input" asp-for="Input.RememberMe" />
+                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                </label>
+            </div>
+           
+            <div class="buttonl">
+                <button class="loginbutton" id="login-submit">Log in</button>
+            </div>
+
+            <div class="social-buttons">
+                <div class="social">
+
+                    <i class="RiBaiduLine">
+                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        </i>
+                </div>
+                <div class="social">
+              
+                        <i>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        </i>
+                   
+                </div>
+                <div class="social">
+                   
+                        <i>
+                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                        </i>
+                  
+                </div>
+            </div>
+            <div class="footer">Random text</div>
+
+
+
+        </form>
+
+
+        
+    </div>
+    
+</div><!-- partial -->
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
