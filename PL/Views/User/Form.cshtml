@@ -1,0 +1,84 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser
+
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Usuario</h2>
+        <h5>Ingrese los datos del Usuario:</h5>
+    </div>
+</div>
+
+
+@using (Html.BeginForm("Form", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-3" style="display: none;">
+            @Html.TextBoxFor(model => model.Id, new { @class = "hidden form-control", autocomplete = "off" })
+        </div>
+
+        <div class="col-md-3"> @* Nombre del usuario *@
+            @Html.LabelFor(model => model.UserName)
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-controller"></i></span>
+                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @id = "txtNombre", @placeholder="Nombre", autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.UserName, null, new { @class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="col-md-3"> @* Numero de Telefono *@
+            @Html.LabelFor(model => model.PhoneNumber)
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-controller"></i></span>
+                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @id = "txtPhoneNumber", @placeholder="PhoneNumber", autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, null, new { @class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="col-md-3"> @* Confirmacion del numero *@
+            @Html.LabelFor(model => model.PhoneNumberConfirmed)
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-controller"></i></span>
+                @Html.TextBoxFor(model => model.PhoneNumberConfirmed, new { @class = "form-control", @id = "txtPhoneNumberConfirmed", @placeholder="Confirma Numero", autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.PhoneNumberConfirmed, null, new { @class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="col-md-3"> @* Correo *@
+            @Html.LabelFor(model => model.Email)
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-controller"></i></span>
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @id = "txtEmail", @placeholder="Email", autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="col-md-3"> @* Confirmar Correo *@
+            @Html.LabelFor(model => model.EmailConfirmed)
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-controller"></i></span>
+                @Html.TextBoxFor(model => model.EmailConfirmed, new { @class = "form-control", @id = "txtEmailConfirmed", @placeholder="EmailConfirmed", autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.EmailConfirmed, null, new { @class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="col-md-3"> @* Contraseña *@
+            @Html.LabelFor(model => model.PasswordHash)
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-controller"></i></span>
+                @Html.TextBoxFor(model => model.PasswordHash, new { @class = "form-control", @id = "txtPasswordHash", @placeholder="PasswordHash", autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.PasswordHash, null, new { @class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-3">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+                @Html.ActionLink("Regresar", "GetAll", "UserController", htmlAttributes: new { @class = "btn btn-danger" })
+            </div>
+        </div>
+    </div>
+}

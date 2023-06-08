@@ -30,11 +30,11 @@ body {
     /*cuerpo de perrito*/
 .center {
     position: relative;
-    top: 50%;
+    top: 10%;
     left: 50%;
     display: inline-block;
-    width: 410px;
-    height: 640px;
+    width: 930px;
+    height: 860px;
     border-radius: 3px;
     transform: translate(-50%, -50%);
     overflow: hidden;
@@ -187,7 +187,7 @@ body {
     transform: translateX(-50%);
     width: 4px;
     height: 25px;
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: #fcb7bf;
 }
 
@@ -233,8 +233,8 @@ body {
     }
 
         .center .hands .finger .bone {
-            width: 20px;
-            height: 20px;
+            width: 40px;
+            height: 40px;
             border: 2px solid #243946;
             border-bottom: none;
             border-top: none;
@@ -298,7 +298,7 @@ body {
         .center .login label:before {
             position: relative;
             left: 1px;
-            margin: 5px;
+            margin: 15px;
         }
 
     .center .login input,

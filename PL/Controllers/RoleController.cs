@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ML;
 using System.ComponentModel.DataAnnotations;
 
 namespace PL.Controllers
@@ -19,11 +20,25 @@ namespace PL.Controllers
 
             return View(Roles);
         }
-        public IActionResult Form(Guid? Id)
+
+        [HttpGet]
+        public async Task<IActionResult> Form(Guid? Id)
         {
             IdentityRole role = new IdentityRole();
 
-            return View(role);
+            if (Id == null) //metodo add
+            {
+                return View(role);
+            }
+            else // update
+            {
+                var rolExist = await roleManager.FindByIdAsync(Id.ToString()); //existencia de un rol
+
+                role.Id = rolExist.Id;
+                role.Name = rolExist.Name;
+
+                return View(role);
+            }
         }
 
         [HttpPost]
